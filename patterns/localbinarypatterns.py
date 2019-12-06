@@ -20,7 +20,10 @@ class LocalBinaryPatterns:
 			bins=np.arange(0, self.numPoints + 3),
 			range=(0, self.numPoints + 2))
 
+		# Caso queira ver como fica a imagem após aplicação do descritor de textura LBP
 		# cv2.imshow("LBP", lbp)
+
+		# Caso queira ver o histograma gerado
 		# ax = plt.hist(lbp.ravel(), bins = 256)
 		# plt.show()
 

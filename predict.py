@@ -65,10 +65,12 @@ data = df.iloc[:, list(range(0,26))]
 # Embaralha a base
 df = df.sample(frac=1).reset_index(drop=True)
 
-# Separa base de dados em treinamento e testes (usa 30% para teste)
-X_train, X_test, y_train, y_test = train_test_split(data, labels, test_size=0.2)
+# Separa base de dados em treinamento e testes (usa 30% para teste) - Use caso não queira validação cruzada.
+# X_train, X_test, y_train, y_test = train_test_split(data, labels, test_size=0.2)
 
-cs = [400]
+# Treina um classificador SVM nos dados com diferentes parâmetros.
+# Para maiores informações: https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html
+cs = [400] # especificar parâmetros a serem testados
 for c in cs:
     svm = LinearSVC(C=c, max_iter=30000, random_state = 0)
     scores = cross_val_score(svm, data, labels, cv=5)
@@ -83,9 +85,9 @@ for c in cs:
 
 # Treina um classificador GradientBoostingClassifier nos dados com diferentes parâmetros.
 # Para maiores informações: https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html
-learning_rates = [0.1]
-max_depth = [10]
-n_estimators = [240]
+learning_rates = [0.1] # especificar parâmetros a serem testados
+max_depth = [10] # especificar parâmetros a serem testados
+n_estimators = [240] # especificar parâmetros a serem testados
 for lr in learning_rates:
     for md in max_depth:
         for est in n_estimators:
