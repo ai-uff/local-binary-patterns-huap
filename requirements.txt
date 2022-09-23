@@ -79,7 +79,7 @@ plot-metric==0.0.6
 plotly==4.2.1
 prometheus-client==0.7.1
 prompt-toolkit==2.0.10
-protobuf==3.6.0
+protobuf==3.18.3
 psutil==5.4.2
 ptyprocess==0.6.0
 pyasn1==0.4.7
